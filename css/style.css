@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+:root{
+    --bg-color:rgb(79, 78, 71);
+    --active-color:orange;
+    --text-color:#fff;
+}
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.space-between{
+    justify-content: space-between;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+
+/* header css */
+.header{
+    background-color: var(--bg-color);
+}
+.logo{
+    padding: 0 15px;
+}
+.logo a{
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--active-color);
+    display: block;
+    padding: 8px 0;
+    text-transform: uppercase;
+}
+.menu ul{
+    display: flex;
+    transition: 0.3s ease-in-out;
+}
+.menu ul li a{
+    font-size: 18px;
+    color: var(--text-color);
+    display: block;
+    padding: 12px 25px;
+}
+.menu ul li a:hover,
+.menu ul li a.active{
+    background-color: var(--active-color);
+}
+.nav-toggler{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin-top:7px; 
+    display: none;  
+}
+.nav-toggler span{
+    display: block;
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    margin: auto;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+.nav-toggler.active span{
+    background: transparent;
+}
+.nav-toggler span:after,
+.nav-toggler span:before{
+    content:'';
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width:100%;
+    background-color: #000;
+    transition: 0.3s ease-in-out;
+}
+.nav-toggler span:after{
+    transform:translateY(-6px)
+}
+.nav-toggler span:before{
+    transform:translateY(6px)
+}
+
+.nav-toggler.active span:after{
+    transform:rotate(45deg);
+}
+.nav-toggler.active span:before{
+    transform: rotate(135deg);
+}
+
+
+
+@media all and (max-width:991px){
+    .nav-toggler{
+        display: block;
+        margin-right:15px;
+    }
+    .menu{
+        width:100%;
+        display: none;
+    }
+    .menu.open{
+        display: block;
+    }
+    .menu ul{
+        border-top:1px solid #343434;
+        flex-direction: column;
+    }
+}
